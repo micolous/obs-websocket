@@ -432,7 +432,7 @@ QString WSEvents::getRecordingTimecode() {
 
 OBSDataAutoRelease getMediaSourceData(calldata_t* data) {
 	OBSDataAutoRelease fields = obs_data_create();
-	OBSSource source = calldata_get_pointer<obs_source_t>(data, "source");
+	obs_source_t* source = calldata_get_pointer<obs_source_t>(data, "source");
 
 	obs_data_set_string(fields, "sourceName", obs_source_get_name(source));
 	obs_data_set_string(fields, "sourceKind", obs_source_get_id(source));
